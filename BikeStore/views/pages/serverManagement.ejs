@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../partial/head %>
+  </head>
+  <body>
+  <% include ../partial/header %>
+    <div class=" col-lg-8 col-lg-offset-2" style="margin-top: 30px;">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title myPanelTitle">Instance Overview</h3>
+        </div>
+        <div class="panel-body">
+          <!-- Server overview -->
+          <div class="row">
+            <!-- [START] single instance overview -->
+            <% for (var i = 0; i < serverList.length; i++) { %>
+            <div class="col-lg-4">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title myPanelTitle">Instance <%= i + 1 %> </h3>
+                </div>
+                <div class="panel-body">
+                  <ul>
+                    <li class="myServerOverivewListItem">Location: <%= serverList[i].location %></li>
+                    <li class="myServerOverivewListItem">Status: <%= serverList[i].status %></li>
+                    <li class="myServerOverivewListItem">Type: <%= serverList[i].instance_type %></li>
+                    <li class="myServerOverivewListItem">Type: <%= serverList[i].cost %></li>
+                  </ul>
+                  <button class="btn btn-primary">Detail</button>
+                  <button class="btn btn-warning">Stop</button>
+                </div>
+              </div>
+            </div>
+            <% } %>
+            <!-- [END] single instance overview -->
+          </div>
+        </div>
+        <div class="panel-footer">
+          <a class="btn btn-success" href="serverManagement/createServer">Create</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" style="margin: auto;">
+      <div class="col-lg-4 col-lg-offset-2">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title myPanelTitle">Load Balancer</h3>
+          </div>
+          <div class="panel-body">
+            <ul class="myServerOverivewListItem">
+              <li>Attribute 1: <%= loadBalancer.attribute1%></li>
+              <li>Attribute 2: <%= loadBalancer.attribute2%></li>
+              <li>Attribute 3: <%= loadBalancer.attribute3%></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Panel title</h3>
+          </div>
+          <div class="panel-body">
+            Panel content
+          </div>
+        </div>
+      </div>
+    </div>
+  <% include ../partial/footer %>
+  </body>
+</html>

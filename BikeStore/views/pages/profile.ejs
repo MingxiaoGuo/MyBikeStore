@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partial/head %>
+</head>
+<body>
+  <% include ../partial/header %>
+
+  <div class="container col-lg-4 col-lg-offset-4" style="margin-top: 20px">
+      <!--[START] facebook profile -->
+    <div class="row">
+      <div class="well well-sm">
+        <div class="row">
+          <div class="col-sm-6 col-md-4">
+            <% if (typeof user.facebook.id !== 'undefined') { %>
+              <img src="<%= user.facebook.profilePhoto %>" alt="" class="img-rounded img-responsive" id="id_profile_image" />
+            <% } else if (typeof user.google.id !== 'undefined') { %>
+              <img src="<%= user.google.profilePhoto %>" alt="" class="img-rounded img-responsive" id="id_profile_image" />
+            <% } else { %>
+              <img src="<%= user.local.profilePhoto %>" alt="../images/default_profile_pic.png" class="img-rounded img-responsive" id="id_profile_image" />
+            <% } %>
+          </div>
+          <div class="col-sm-6 col-md-8">
+            <p>
+              <% if (typeof user.facebook.id !== 'undefined') { %>
+                  <strong>id</strong>: <%= user.facebook.id %><br>
+                  <strong>email</strong>: <%= user.facebook.email %><br>
+                  <strong>name</strong>: <%= user.facebook.name %>
+              <% } else if (typeof user.google.id !== 'undefined') { %>
+                  <strong>id</strong>: <%= user.google.id %><br>
+                  <strong>email</strong>: <%= user.google.email %><br>
+                  <strong>name</strong>: <%= user.google.name %>
+              <% } else { %>
+                  <strong>id</strong>: <%= user._id %><br>
+                  <strong>email</strong>: <%= user.local.email %><br>
+                  <strong>name</strong>: <%= user.local.name %>
+              <% } %>
+            </p>
+            <p>
+              <a href="/profile/edit" class="btn btn-info btn-block btn-sm">Edit</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- [END] facebook profile -->
+  </div>
+  <% include ../partial/footer %>
+</body>
+
+</html>

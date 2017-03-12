@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ../partial/head %>
+    </head>
+    <body>
+        <% include ../partial/header %>
+        <div class="center-block jumbotron" id="indexJumbotron">
+            <p style="color: #eeeeee; text-align: center; font-size: 80px">Change your bike life</p>
+            <p class="text-center">
+                <button class="btn btn-primary" id="btnIndexExplore">Explore Our Bikes</button>
+            </p>
+        </div>
+        <% include ../partial/footer %>
+    </body>
+</html>
+
+<script>
+    document.getElementById("btnIndexExplore").onclick = function () {
+        location.href = "/bikes";
+    };
+</script>

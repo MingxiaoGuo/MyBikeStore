@@ -1,0 +1,119 @@
+<nav class="navbar navbar-static-top navbar-inverse">
+    <div class="container-fluid col-lg-8 col-lg-offset-2">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand myBrand" href="/">Hello Bike</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+                <li>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm dropdown-toggle navbar-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Bikes <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="/bikes/men">Men</a></li>
+                            <li><a href="/bikes/women">Women</a></li>
+                            <li><a href="/bikes/kids">Kids</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="/equipments">Equipments</a></li>
+                <li><a href="/forum">Forum</a></li>
+            </ul>
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <% if (typeof user === 'undefined') { %>
+                    <li><button type="button" class="btn btn-info btn-sm navbar-btn" id="btnRegister"  style="margin-right: 10px">Register</button></li>
+                    <li><button type="button" class="btn btn-info btn-sm navbar-btn" id="btnSignIn">Sign in</button></li>
+                <% } else { %>
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"/>
+                        <!--<span class="glyphicon glyphicon-user"></span>-->
+                        <span class="fa fa-user-circle userIconClass"></span>
+                        &nbsp;
+                        <!--change input attribute according to profile type -->
+                        <span class="userIconClass">
+                            <% if (typeof user.facebook.id !== 'undefined') { %>
+                            <%= user.facebook.name %>
+                            <% } else if (typeof user.google.id !== 'undefined') { %>
+                            <%= user.google.name %>
+                            <% } else { %>
+                            <%= user.local.name %>
+                            <% } %>
+                        </span>
+
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <div class="navbar-login">
+                                    <div class="row">
+                                        <!--profile picture-->
+                                        <div class="col-lg-4">
+                                            <p class="text-center">
+                                                <!--change image link according to profile type -->
+                                                <% if (typeof user.facebook.id !== 'undefined') { %>
+                                                    <img class="profile-image img-circle" src="<%= user.facebook.profilePhoto %>" >
+                                                <% } else if (typeof user.google.id !== 'undefined') { %>
+                                                    <img class="profile-image img-circle" src="<%= user.google.profilePhoto %>" >
+                                                <% } else { %>
+                                                    <img class="profile-image img-circle" src="<%= user.local.profilePhoto %>" height="45px">
+                                                <% } %>
+                                            </p>
+                                        </div>
+                                        <!--profile summary-->
+                                        <%if (typeof user.admin.email === 'undefined') {%>
+                                            <div class="col-lg-8">
+                                                <% if (typeof user.facebook.id !== 'undefined') { %>
+                                                    <p class="text-left"><strong><%= user.facebook.name %></strong></p>
+                                                <% } else if (typeof user.google.id !== 'undefined') { %>
+                                                    <p class="text-left"><strong><%= user.google.name %></strong></p>
+                                                <% } else { %>
+                                                    <p class="text-left"><strong><%= user.local.name %></strong></p>
+                                                <% } %>
+                                                <p class="text-left">
+                                                    <a href="/profile" class="btn btn-info btn-block btn-sm">Account</a>
+                                                    <a href="/cart" class="btn btn-info btn-block btn-sm">Cart</a>
+                                                </p>
+                                            </div>
+                                        <% } else { %>
+                                        <div class="col-lg-8">
+                                            <p class="text-left"><strong><%= user.admin.email %></strong></p>
+
+                                            <p class="text-left">
+                                                <a href="/userManagement" class="btn btn-info btn-block btn-sm">User</a>
+                                                <a href="/productManagement" class="btn btn-info btn-block btn-sm">Product</a>
+                                                <a href="/serverManagement" class="btn btn-info btn-block btn-sm">Server</a>
+                                            </p>
+                                        </div>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="/logout"><i class="fa fa-sign-out"></i> Sign out</a></li>
+                        </ul>
+                    </li>
+                <% } %>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<script type="text/javascript">
+    // set register button link
+    document.getElementById("btnRegister").onclick = function () {
+        location.href = "/register";
+    };
+    // set sign in button lik
+    document.getElementById("btnSignIn").onclick = function () {
+        location.href = "/login";
+    };
+</script>

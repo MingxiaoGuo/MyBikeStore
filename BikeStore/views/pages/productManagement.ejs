@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partial/head %>
+</head>
+<body>
+<% include ../partial/header %>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-4">
+          <button class="btn btn-success btn-lg" id="id_btnCreateNewProduct">Create New Product</button>
+        </div>
+      </div>
+      <div class="row">
+        <!-- [START] product list -->
+        <% for (var i = 0; i < productList.length; i++) { %>
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail myProductOverviewItem">
+              <!-- product picture -->
+              <div>
+                <img src=<%= productList[i].productPics[0] %> alt=<%= productList[i].productName %> >
+              </div>
+              <div class="caption">
+                <table class="table table-hover">
+                  <tr>
+                    <td>Name: </td>
+                    <td><%= productList[i].productName %></td>
+                  </tr>
+                  <tr>
+                    <td>Price: </td>
+                    <td><i class="fa fa-usd" aria-hidden="true"></i><%= productList[i].productPrice %></td>
+                  </tr>
+                  <tr>
+                    <td>Inventory: </td>
+                    <td><%= productList[i].productInventory %></td>
+                  </tr>
+                </table>
+                <p>
+                  <a href="#" class="btn btn-primary btn-block" role="button">Detail</a>
+                  <a href="#" class="btn btn-danger btn-block" role="button">Delete</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% } %>
+        <!-- [END] product list -->
+      </div>
+    </div>
+<% include ../partial/footer %>
+</body>
+</html>

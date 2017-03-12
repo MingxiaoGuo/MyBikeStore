@@ -1,0 +1,93 @@
+.myBrand {
+  font-size: 30px;
+  font-family: 'Supermercado One', cursive;
+}
+
+body {
+  background: #2d2c41;
+}
+
+.navbar {
+  margin:0;
+}
+
+.navbar-login {
+  width: 250px;
+  padding: 10px;
+  padding-bottom: 0px;
+}
+
+.userIconClass {
+  font-size:20px;
+}
+
+#indexJumbotron {
+  background: url(../images/bike_bg.jpg) no-repeat center;
+  background-size: cover;
+  height: 95vh;
+  margin:0;
+  padding: 10px;
+}
+
+#editProfileContainer {
+  margin-top: 35px;
+  background-color: whitesmoke;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px solid #000000;
+  padding: 30px;
+}
+
+.panel {
+  margin-top: 20px;
+}
+
+footer {
+  position:fixed;
+  bottom:0;
+  left:0;
+  height:40px;
+  width: 100%;
+}
+
+#txtFooterCopyRight {
+  font-size:20px;
+  color: white;
+  font-family: Calibri;
+}
+
+.myPanelTitle {
+  font-size: 20px;
+  font-family: 'Roboto Slab';
+}
+
+.myServerOverivewListItem {
+  list-style-type: none; /* remove bullet point in ul */
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.row {
+  margin-top: 10px;
+}
+
+.thumbnail {
+  margin-top: 20px;
+  overflow: auto;
+}
+
+.thumbnail img{
+  // your styles for the image
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+#id_btnCreateNewProduct {
+  margin-top: 20px;
+}
+
+.productOverviewButtons btn {
+  float: right;
+}
